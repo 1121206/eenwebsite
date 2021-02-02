@@ -1,0 +1,220 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Arial;
+  font-size: 16px;
+}
+
+header {
+  height: 100vh;
+  background: url(img/de-surinees.jpg) no-repeat center center fixed;
+  position: relative;
+
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 250%;
+
+}
+
+header > h1 {
+ color: white;
+ position: absolute;
+ top: 40%;
+ left: 50%;
+ transform: translateX(-50%);
+ font-size: 300%;
+}
+
+.modal {
+  width: 500px;
+  max-width: 80%;
+  background-color: rgba(235, 168, 52, 0.95);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  transition: 200ms ease-out;
+  border: 1px solid black;
+  border-radius: 5px;
+  z-index: 10
+}
+
+.modal.active{
+  animation-name: openinganimatiemodal;
+  animation-duration: 0.5s;
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body, .prijs{
+  padding: 10px 15px;
+}
+
+#modal-overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 9;
+}
+
+header > button {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  height: 50px;
+  width: 200px;
+  transform: translateX(-50%);
+  opacity: 0.9;
+  font-size: 130%;
+  color: white;
+  background-color: orange ;
+  border: none;
+  border-radius: 8px;
+}
+
+header > button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.bestel-button{
+  margin-bottom: 15px;
+  position: relative;
+  /*top: 70%;*/
+  left: 50%;
+  height: 50px;
+  width: 200px;
+  transform: translateX(-50%);
+  opacity: 0.9;
+  font-size: 130%;
+  color: white;
+  background-color: orange ;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.bestel-button {
+  cursor: pointer;
+  opacity: 1;
+}
+
+main.container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 80px;
+  grid-row-gap: 80px;
+}
+
+main > figure > img{
+  width: 100%;
+  transition: 0.2s all;
+}
+
+main > figure > img:hover{
+  transform: scale(1.2);
+  z-index: 8;
+}
+
+
+figcaption {
+  text-align: center;
+  opacity: 0.9;
+}
+
+p {
+  line-height: 1.55;
+  color: #665544;
+  margin-bottom:20px;
+  margin-top: 20px;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.18;
+  background-color: orange;
+}
+
+footer{
+  width: 80%;
+  margin:0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 80px;
+  padding: 80px;
+
+
+}
+footer > h4 {
+  grid-column-start: 3;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 700px) {
+  main.container , footer{
+
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    width: 50%;
+  }
+
+  footer > h4 {
+    grid-column-start: 1;
+  }
+
+  header > h1 {
+    top: 30%;
+  }
+}
+@keyframes openinganimatiemodal{
+  0% {
+    top: 35%;
+  }
+  100% {
+    top: 50%;
+  }
+}
